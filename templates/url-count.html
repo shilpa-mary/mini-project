@@ -1,0 +1,90 @@
+{%load static %}
+<html>
+    <link rel="stylesheet" href="{%static 'css/table.css' %}">
+    <link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+/>
+<title> Url Count </title>
+<header class="section-header">
+  <section class="header-main border-bottom bg-white">
+    <div class="container-fluid">
+      <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
+        <div class="col-md-2">
+        
+          <span class="fw-bold"><a href="/admin_panel">Admin Home</a> </span>
+        </div>
+        <div class="col-md-8">
+          <div class="d-flex form-inputs">
+            <i class="bx bx-search"></i>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <div class="d-flex d-none d-md-flex flex-row align-items-center">
+            <span class="shop-bag"><i class="bx bxs-shopping-bag"></i></span>
+            <div class="d-flex flex-column ms-2">
+              {% if 'user_id' in request.session%} {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
+<body>
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+    
+    <div class="col-lg-8 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Url Count</h4>
+                      <p class="card-description">
+                    
+                      </p>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>No.click</th>
+                             
+                              <th>Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Amazon</td>
+                              <td>{{amazon}}</td>
+                              
+                              <td><label class="badge badge-info">Active</label></td>
+                            </tr>
+                           
+                            <tr>
+                              <td>Flipkart</td>
+                              <td>{{flipkart}}</td>
+                            
+                              <td><label class="badge badge-info">Active</label></td>
+                            </tr>
+                            <tr>
+                              <td>Croma</td>
+                              <td>{{croma}}</td>
+                             
+                              <td><label class="badge badge-info">Active</label></td>
+                            </tr>
+                            
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                </div>
+                  </div>
+                </div>
+</body>
+
+</html>

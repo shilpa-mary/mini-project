@@ -1,0 +1,60 @@
+{%load static %}
+
+<html>
+<head>
+	 <link rel="stylesheet" href="{%static 'css/login.css' %}">
+     <title> Profile </title>
+</head>
+
+<body>
+<div class="login-wrap">
+	<div class="login-html">
+		{% if messages %}
+			<ul class="messages">
+				{% for message in messages %}
+				<li{% if message.tags %} style="color:red" class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				{% endfor %}
+			</ul>
+				  {% endif %}
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Edit Profile</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+		<div class="login-form">
+			<form action= '{% url 'profile' %}' method ="POST">
+			<div class="sign-in-htm">
+				{% csrf_token %}
+                <div class="group">
+                    <input id="user"name="id"  type="hidden" class="input">
+					<label for="user" class="label">First Name</label>
+					<input id="user"name="first_name" value="{{user.first_name}}" type="text" class="input">
+				</div>
+                <div class="group">
+					<label for="user" class="label">Last Name</label>
+					<input id="user"name="last_name" value="{{user.last_name}}"  type="text" class="input">
+				</div><div class="group">
+					<label for="user" class="label">Email(Can't update)</label>
+					<input id="user"name="email" readonly value="{{user.email}}" type="email" class="input">
+				</div>
+				
+				<div class="group">
+					<label for="pass" class="label">New Password</label>
+					<input id="pass" name="password" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="Update">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+
+
+				</div>
+			</form>
+			</div>
+		
+		</div>
+	</div>
+</div>
+</body>
+</html>
